@@ -37,7 +37,7 @@ module.exports = {
               // Ask git for the current branch name
               var run_cl = spawn("git", ["rev-parse", "--abbrev-ref", "HEAD"]);
               // If it succeeds return it
-              if (run_cl.stdout != null) {
+              if ((run_cl.stdout != null) && (run_cl.stdout != "")) {
                 return run_cl.stdout.toString();
               }
               // else (=> Git is not installed) ignore the error message
