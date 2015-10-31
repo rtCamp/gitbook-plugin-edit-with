@@ -27,6 +27,24 @@ module.exports = {
                 base = base + "/";
             }
 
+            // replace placeholder with actual branch name
+            // if Git is installed
+
+            // Match a branch name in brackets
+            base = base.replace(/\[.+\]/, function gitBranch(defaultBranch) {
+              var sys = require('sys')
+              var spawn = require('child_process').spawnSync;
+              // Ask git for the current branch name
+              var run_cl = spawn("git", ["rev-parse", "--abbrev-ref", "HEAD"]);
+              // If it succeeds return it
+              if (run_cl.stdout != null) {
+                return run_cl.stdout.toString();
+              }
+              // else (=> Git is not installed) ignore the error message
+              // and return the default branch, stripped from the brackets
+              return defaultBranch.replace(/\[(.+)\]/, "$1");
+            });
+
             // relative path to the page
             var newPath = path.relative(this.root, page.rawPath);
 
