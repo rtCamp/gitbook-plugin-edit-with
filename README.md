@@ -69,6 +69,10 @@ Link target will be that page's source file on Github or Gitlab or any repo.
 
 **Github/Gitlab**: In string `...REPO/edit/BRANCH...`, you may replace `edit` with `tree` if you want source file to open in read-mode, rather than edit-mode directly on github/gitlab.
 
+##### Using the actual branch name
+
+It is possible to replace `BRANCH` with the actual Git branch name the Gitbook is built from. To achieve this you have to enclose a *default* branch name with brackets: in `"base": "https://github.com/USER/REPO/edit/[master]/path/to/book",` `[master]` will be replaced with the actual branch name if Git is installed and the GitBook is built within a repository. If that lookup fails the given default from `config.base` will be used (without the brackets).
+
 ### Step #2 - gitbook commands
 
 1. Run `gitbook install`. It will automatically install `edit-link` gitbook plugin for your book. This is needed only once.
