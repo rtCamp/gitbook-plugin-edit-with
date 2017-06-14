@@ -43,6 +43,16 @@
                 "type": [ "string", "object" ],
                 "title": "Label for the edit button",
                 "default": "Edit This Page"
+            },
+            "icon": {
+                "type": "string",
+                "title": "Icon for Button",
+                "default": "fa fa-edit"
+            },
+            "addpath": {
+                "type": "boolean",
+                "title": "Add page link",
+                "default": true
             }
         }
     }
