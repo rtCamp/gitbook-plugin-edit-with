@@ -23,7 +23,7 @@ require(["gitbook", "jQuery"], function(gitbook, $) {
             text: label,
             onClick: function() {
                 var filepath = gitbook.state.filepath;
-
+                console.log(base + lang + addpath ? filepath : '');
                 window.open(base + lang + addpath ? filepath : '' );
             }
         });
