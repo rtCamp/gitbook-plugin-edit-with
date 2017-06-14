@@ -25,7 +25,7 @@ require(["gitbook", "jQuery"], function(gitbook, $) {
                 var filepath = gitbook.state.filepath;
                 console.log(base);
                 console.log(lang);
-                console.log(addpath ? filepath : '');
+                console.log(addpath);
                 window.open(base + lang + (addpath ? filepath : '') );
             }
         });
