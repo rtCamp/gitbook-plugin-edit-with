@@ -3,7 +3,7 @@ require(["gitbook", "jQuery"], function(gitbook, $) {
         var conf = config['edit-link'];
         var label = conf.label;
         var base = conf.base;
-        var icon = conf.icon;
+        var icon = conf.icon ? conf.icon : 'fa fa-edit';
         var addpath= conf.addpath ? conf.addpath : true;
         var lang = gitbook.state.innerLanguage;
         if (lang) {
