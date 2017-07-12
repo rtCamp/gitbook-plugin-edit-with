@@ -3,6 +3,8 @@ require(["gitbook", "jQuery"], function(gitbook, $) {
         var conf = config['edit-link'];
         var label = conf.label;
         var base = conf.base;
+        var icon = ("icon" in conf) ? conf.icon : 'fa fa-edit';
+        var addpath= ("addpath" in conf) ? conf.addpath : true;
         var lang = gitbook.state.innerLanguage;
         if (lang) {
             // label can be a unique string for multi-languages site
@@ -17,12 +19,12 @@ require(["gitbook", "jQuery"], function(gitbook, $) {
         }
 
         gitbook.toolbar.createButton({
-            icon: 'fa fa-edit',
+            icon: icon,
             text: label,
             onClick: function() {
                 var filepath = gitbook.state.filepath;
 
-                window.open(base + lang + filepath);
+                window.open(base + lang + (addpath ? filepath : '') );
             }
         });
     });
