@@ -1,9 +1,9 @@
 GitBook Plugin: Edit Link
 ======================================
 
-This GitBook Plugin adds "Edit This Page" link on every page.
-
-Link target will be that page's source file on Github or Gitlab or any repo.
+This GitBook Plugin adds an "Edit This Page" link to every page's
+toolbar. The link targets that page's source file on Github, or Gitlab,
+or any repo.
 
 ## Screenshot
 
@@ -11,11 +11,15 @@ Link target will be that page's source file on Github or Gitlab or any repo.
 
 ## Usage
 
-### Step #1 - Update `book.json` file
+### Step #1 - Update the `book.json` file
 
-1. In you gitbook's `book.json` file, add `edit-link` to `plugins` list.
-2. In `pluginsConfig`, Set `base` value which is base path to your github or gitlab or other code repo. Trailing slash is NOT required.
-3. By default link label will be "Edit This Page". You can change it using plugin config `label`.
+1. In your GitBook's `book.json` file, add `edit-link` to `plugins` list.
+
+2. In `pluginsConfig`, set the `base` value, which is the base path to your
+   GitHub, or GitLab, or other code repo. The trailing slash is NOT required.
+
+3. By default, the link label is "Edit This Page". You can change it by
+   configuring `label`.
 
 #### Sample `book.json` file for gitbook version 2.0.1 and above
 
@@ -65,37 +69,58 @@ Link target will be that page's source file on Github or Gitlab or any repo.
 }
 ```
 
-**Note**: Above snippet can be used as complete `book.json` file, if your book doesn't have one yet.
+**Note**: The above snippet can be used as complete `book.json` file, if
+your book doesn't have one yet.
 
-**Github/Gitlab**: In string `...REPO/edit/BRANCH...`, you may replace `edit` with `tree` if you want source file to open in read-mode, rather than edit-mode directly on github/gitlab.
+**Github/Gitlab**: In the `base` string `...REPO/edit/BRANCH...`, you
+may replace `edit` with `tree` if you want source file to open in
+read-mode, rather than edit-mode directly on GitHub/GitLab.
 
-### Step #2 - gitbook commands
+#### Configuration Summary
 
-1. Run `gitbook install`. It will automatically install `edit-link` gitbook plugin for your book. This is needed only once.
+The following configuration items are available (these need to appear in
+the `pluginsConfig` => `edit-link` section, as demonstrated above):
+
+- `base`:     Specifies the base URL within your book's repo.
+- `icon`:     The classname(s) for the button's icon. Defaults to
+              `fa fa-edit` (a [FontAwesome](http://fontawesome.io/icons/)
+              icon).
+- `label`:    The label for the button. Defaults to `Edit This Page`.
+- `title`:    The title for the button (tooltip popup text on mouseover).
+- `position`: The position of the button in the toolbar, `left` or
+              `right`. Defaults to `left`.
+
+### Step #2 - GitBook commands
+
+1. Run `gitbook install`. It automatically installs the `edit-link`
+   GitBook plugin for your book. This is needed only once.
+
 2. Build your book (`gitbook build`) or serve (`gitbook serve`) as usual.
+
 
 ## Troubleshooting
 
-1. If you are not seeing the "Edit this page" link, check if your `book.json` is valid. You can use this online tool - [http://json.parser.online.fr/beta/](http://json.parser.online.fr/beta/)
-2. Check if you are using default gitbook theme. It is NOT recommended to modify gitbook themes directly.
+1. If you are not seeing the "Edit this page" link, check if your
+   `book.json` is valid. You can use this online tool -
+   [http://json.parser.online.fr/beta/](http://json.parser.online.fr/beta/)
 
-## Known Issue
+2. Check if you are using default GitBook theme; this plugin assumes
+   that you are. It is NOT recommended to modify GitBook themes
+   directly.
 
-Gitbook 2.0.1 has removed `page:after` hook which this plugin needs. An issue has been reported here - https://github.com/GitbookIO/gitbook/issues/724 but meanwhile this plugin is using workaround added by this pull request - https://github.com/rtCamp/gitbook-plugin-edit-link/pull/4
-
-So when using Gitbook 2.0.1, you may see following warning in console at the time of running build:
-
-> warn: hook 'page' used by plugin 'gitbook-plugin-edit-link' is deprecated, and will be remove in the coming versions
-
-You can safely ignore above warning for now.
-
-## How this work?
-
-This plugin simply looks for HTML comment `<!-- Actions Right -->` in parsed page content and insert "edit link" HTML just before `<!-- Actions Right -->`.
-
-This means if that HTML comment changes, this plugin will break but I hope to fix it easily whenever that happen.
 
 ## Changelog
+
+**2.1 - 09 August 2017**
+
+- Added defense agaist undefined GitBook language, per @matsu-chara.
+- Added option to specify the `title`.
+- Added option to specify the `icon`, per @amakrishnamundru.
+- Added option to specify the `position` in the toolbar.
+- Updated `README.md`:
+  - Removed deprecated "Known Issue" and "How this work?" sections.
+  - Fixed grammar.
+  - Added "Configuration Overview".
 
 **1.3 - 28 April 2015**
 

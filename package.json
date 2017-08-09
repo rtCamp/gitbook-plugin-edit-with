@@ -1,11 +1,15 @@
 {
     "name": "gitbook-plugin-edit-link",
-    "description": "GitBook Plugin to add \"Edit this page\" link on every page. Link target will be that page's source file on Github or Gitlab or any repo.",
+    "description": "GitBook Plugin to add an \"Edit this page\" link to every page. Link target will be that page's source file on GitHub, or GitLab, or any repo.",
     "main": "index.js",
-    "version": "2.0.2",
-    "author": "rtCamp <admin@rtcamp.com>",
+    "version": "2.1.0",
+    "author": "Ewan Edwards <ewan@buddybuild.com>",
     "contributors": [
-       {
+        {
+            "name": "Ewan Edwards",
+            "email": "ewan@buddybuild.com"
+        },
+        {
             "name": "Rahul Bansal",
             "email": "rahul.bansal@rtcamp.com"
         },
@@ -17,14 +21,14 @@
     "engines": {
         "gitbook": ">=2.5.0"
     },
-    "homepage": "https://github.com/rtCamp/gitbook-plugin-edit-link",
+    "homepage": "https://github.com/buddybuild-public/gitbook-plugin-edit-link",
     "repository": {
         "type": "git",
-        "url": "https://github.com/rtCamp/gitbook-plugin-edit-link.git"
+        "url": "https://github.com/buddybuild-public/gitbook-plugin-edit-link.git"
     },
     "license": "Apache-2.0",
     "bugs": {
-        "url": "https://github.com/rtCamp/gitbook-plugin-edit-link/issues"
+        "url": "https://github.com/buddybuild-public/gitbook-plugin-edit-link/issues"
     },
     "keywords": [
         "gitbook",
@@ -39,10 +43,25 @@
                 "title": "Base for the edit redirection",
                 "required": true
             },
+            "icon": {
+                "type": "string",
+                "title": "Icon for the button",
+                "default": "fa fa-edit"
+            },
             "label": {
                 "type": [ "string", "object" ],
                 "title": "Label for the edit button",
                 "default": "Edit This Page"
+            },
+            "title": {
+                "type": "string",
+                "title": "Title for the edit button",
+                "default": ""
+            },
+            "position": {
+                "type": "string",
+                "title": "Position in the toolbar, left or right",
+                "default": "left"
             }
         }
     }
