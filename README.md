@@ -15,11 +15,11 @@ or any repo.
 
 1. In your GitBook's `book.json` file, add `edit-link` to `plugins` list.
 
-2. In `pluginsConfig`, Set `base` value which is the base path to your
+2. In `pluginsConfig`, set the `base` value, which is the base path to your
    GitHub, or GitLab, or other code repo. The trailing slash is NOT required.
 
 3. By default, the link label is "Edit This Page". You can change it by
-   configuring the `label`.
+   configuring `label`.
 
 #### Sample `book.json` file for gitbook version 2.0.1 and above
 
@@ -69,6 +69,13 @@ or any repo.
 }
 ```
 
+**Note**: The above snippet can be used as complete `book.json` file, if
+your book doesn't have one yet.
+
+**Github/Gitlab**: In the `base` string `...REPO/edit/BRANCH...`, you
+may replace `edit` with `tree` if you want source file to open in
+read-mode, rather than edit-mode directly on GitHub/GitLab.
+
 #### Configuration Summary
 
 The following configuration items are available (these need to appear in
@@ -82,13 +89,6 @@ the `pluginsConfig` => `edit-link` section, as demonstrated above):
 - `title`:    The title for the button (tooltip popup text on mouseover).
 - `position`: The position of the button in the toolbar, `left` or
               `right`. Defaults to `left`.
-
-**Note**: The above snippet can be used as complete `book.json` file, if
-your book doesn't have one yet.
-
-**Github/Gitlab**: In the `base` string `...REPO/edit/BRANCH...`, you
-may replace `edit` with `tree` if you want source file to open in
-read-mode, rather than edit-mode directly on GitHub/GitLab.
 
 ### Step #2 - GitBook commands
 
